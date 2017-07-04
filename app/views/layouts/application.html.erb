@@ -3,6 +3,12 @@
   <head>
     <title>StaffList</title>
     <%= csrf_meta_tags %>
+		<% if alert %>
+		<p class = "alert"><%= alert %></p>
+		<% end %>
+		<% if notice %>
+		<p class="notice"><% notice %></p>
+		<% end %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,6 +18,8 @@
     <div class="container">
       <%= yield %>
     </div>
+		
+		<%= button_to 'Logout', destroy_user_session_path, method: :delete %>
 
   </body>
 </html>
