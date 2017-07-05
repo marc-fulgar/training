@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_department, only: [:show, :update, :destroy] 
+  before_action :set_department, only: [:show, :edit, :update, :destroy] 
   
   def index
     @departments = Department.all
