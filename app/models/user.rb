@@ -1,11 +1,14 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  belongs_to :department
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable  
   
   attr_accessor :login
   validates :username, :presence => true, :uniqueness => true
+  validates :department_id, :presence => true
   
   def email_required?
     false

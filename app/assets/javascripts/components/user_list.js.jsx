@@ -8,6 +8,7 @@ var UserList = React.createClass({
             <tr>
               <th>First name</th>
               <th>Last name</th>
+							<th>Department</th>
               <th>Position</th>
               <th>Email</th>
               <th></th>

@@ -16,6 +16,11 @@
 </p>
 
 <p>
+  <strong>Department:</strong>
+  <%= Department.where(id: (@user.department_id)).pluck(:name)[0] %>
+</p>
+
+<p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>

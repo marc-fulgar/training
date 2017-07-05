@@ -19,6 +19,11 @@
   </div>
 	
   <div class="field">
+    <%= f.label :department %><br />
+    <%= f.select :department_id, Department.all.pluck(:name, :id) , {prompt: 'Select one'} %>
+	</div>
+		
+  <div class="field">
     <%= f.label :position %><br />
     <%= f.text_field :position, autofocus: true %>
   </div>

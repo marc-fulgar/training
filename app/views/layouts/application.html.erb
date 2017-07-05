@@ -18,8 +18,8 @@
     <div class="container">
       <%= yield %>
     </div>
-		
-		<%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+		<%= link_to 'Departments', departments_path, method: :index %><br>
+		<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 
   </body>
 </html>

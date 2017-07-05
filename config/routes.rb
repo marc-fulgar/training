@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :departments
+  resources :departments
+
   devise_for :users
   resources :users, except: [:edit, :new]
   root 'users#index'
