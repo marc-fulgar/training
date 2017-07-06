@@ -9,7 +9,7 @@ class User < ApplicationRecord
   attr_accessor :login
   validates :username, :presence => true, :uniqueness => true
   validates :department_id, :presence => true
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "200x200>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "200x200>" }, default_url: "/images/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   
   ransacker :full_name do |parent|
