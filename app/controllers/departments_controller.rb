@@ -7,6 +7,7 @@ class DepartmentsController < ApplicationController
   end
 
   def show
+    @users = User.where(department_id: params[:id])
   end
 
   def new
@@ -44,9 +45,9 @@ class DepartmentsController < ApplicationController
   end
   
   def destroy
-    @user.destroy
+    @department.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'Department was successfully destroyed.' }
+      format.html { redirect_to departments_url, notice: 'Department was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
