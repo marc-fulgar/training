@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def index
     # @users = User.all.includes(:department)
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).includes(:department)
   end
 
   # GET /users/1

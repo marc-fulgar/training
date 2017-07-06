@@ -10,6 +10,15 @@ class User < ApplicationRecord
   validates :username, :presence => true, :uniqueness => true
   validates :department_id, :presence => true
   
+  ransacker :full_name do |parent|
+    Arel::Nodes::InfixOperation.new('||',
+      Arel::Nodes::InfixOperation.new('||',
+        parent.table[:first_name], Arel::Nodes.build_quoted(' ')
+      ),
+      parent.table[:last_name]
+    )
+  end
+  
   def email_required?
     false
   end
