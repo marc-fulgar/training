@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.includes(:department)
+    # @users = User.all.includes(:department)
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   # GET /users/1

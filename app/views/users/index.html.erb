@@ -2,6 +2,20 @@
 
 <h1>Users</h1>
 
+<%= search_form_for @q do |f| %>
+
+  <%= f.label "Name" %>
+  <%= f.search_field :first_name_or_last_name_cont  %>
+	
+  <%= f.label "Position" %>
+  <%= f.search_field :position_cont  %>
+	
+  <%= f.label :department_name_cont %>
+  <%= f.select :department_id_eq, Department.all.pluck(:name, :id), prompt: 'select one' %>
+
+  <%= f.submit %>
+<% end %>
+
 <%= react_component("UserList", users: @users.as_json(include: :department)) %>
 
 <br>
