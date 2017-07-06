@@ -10,7 +10,7 @@
   <%= f.label "Position" %>
   <%= f.search_field :position_cont  %>
 	
-  <%= f.label :department_name_cont %>
+  <%= f.label "Department" %>
   <%= f.select :department_id_eq, Department.all.pluck(:name, :id), {include_blank: ' '} %>
 
   <%= f.submit %>
