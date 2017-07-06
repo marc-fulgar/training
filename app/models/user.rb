@@ -2,13 +2,15 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   belongs_to :department
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable  
   
   attr_accessor :login
   validates :username, :presence => true, :uniqueness => true
   validates :department_id, :presence => true
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "200x200>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   
   ransacker :full_name do |parent|
     Arel::Nodes::InfixOperation.new('||',
@@ -20,6 +22,10 @@ class User < ApplicationRecord
   end
   
   def email_required?
+    false
+  end
+  
+  def password_required?
     false
   end
   

@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+	<%= image_tag @user.avatar.url(:thumb) %>
+</p>
+
+<p>
   <strong>First name:</strong>
   <%= @user.first_name %>
 </p>
@@ -25,4 +29,4 @@
   <%= @user.email %>
 </p>
 
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %> | <%= link_to 'Edit', edit_user_registration_path %>
