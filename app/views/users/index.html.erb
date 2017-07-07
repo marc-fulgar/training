@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Users</h1>
+<h1 class = "text-center">Users</h1>
 
 <%= search_form_for @q do |f| %>
-
-  <%= f.label "Name" %>
-  <%= f.search_field :full_name_cont  %>
+	<div class="form-inline">
+	  <%= f.label "Name", :class => "sr-only" %>
+	  <%= f.search_field :full_name_cont, :class => "form-control input-sm", :placeholder=>"Name"%>
 	
-  <%= f.label "Position" %>
-  <%= f.search_field :position_cont %>
+	  <%= f.label "Position", :class => "sr-only "%>
+	  <%= f.search_field :position_cont, :class => "form-control input-sm", :placeholder=>"Position" %>
 	
-  <%= f.label "Department" %>
-  <%= f.select :department_id_eq, Department.all.pluck(:name, :id), {include_blank: ' '} %>
+	  <%= f.label "Department", :class => "sr-only" %>
+	  <%= f.select :department_id_eq, Department.all.pluck(:name, :id), {include_blank: ' '}, :class => "form-control input-sm", :placeholder => "Department"%>
 
-  <%= f.submit %>
+	  <%= f.submit "Search", :class => "btn btn-primary btn-sm" %>
+	</div>
 <% end %>
 
 <%= react_component("UserList", users: @users.as_json(include: :department)) %>
