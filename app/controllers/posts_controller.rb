@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   
   def index
     @post = Post.new
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc).includes(:user => :department)
   end
 
   def new
