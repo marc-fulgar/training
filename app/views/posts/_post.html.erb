@@ -10,6 +10,9 @@
 			<tr>
 				<td><%= post.user.department.name ? post.user.department.name : "" %></td>
 			</tr>
+			<tr>
+				<td><%= post.created_at.strftime('%I:%M%p, %d %b, \'%y') %></td>
+			</tr>
 		</td>
 		<td>
 			<tr>
