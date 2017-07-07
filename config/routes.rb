@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :posts
+  resources :posts
+
   devise_for :departments
   resources :departments
 
