@@ -11,11 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-inline">
+    <%= f.label :name, :class=>"sr-only" %><br>
+    <%= f.text_field :name, :class=>"form-control", :placeholder=>"Department Name" %>
+    <%= f.submit "Create", :class=>"btn btn-primary" %>
   </div>
 <% end %>

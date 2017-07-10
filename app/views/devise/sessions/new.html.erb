@@ -1,6 +1,6 @@
-<h2 class='text-center'>Log in</h2>
-
-<div class = "container-fluid">
+<div class = "col-xs-12"><br><br><br><br><br><br><br><br><br><br><br></div>
+<div class = "col-xs-4"></div>
+<div class = "col-xs-4">
 	<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
 	  <div class="form-group">
 	    <%= f.label :username, :class => "sr-only" %>
@@ -16,7 +16,9 @@
 	    <%= f.submit "Log in", :class => 'btn btn-primary btn-lg btn-block' %>
 	  </div>
 	<% end %>
-</div>
 
-<br>
-<%= render "devise/shared/links" %>
+	<br>
+	<%= render "devise/shared/links" %>
+</div>
+<div class = "col-xs-4"></div>
+

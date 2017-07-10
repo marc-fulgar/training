@@ -1,6 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class=>'col-xs-5'}) do |f| %>
   <%= devise_error_messages! %>
 
 	<p>
@@ -9,51 +7,52 @@
 
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
+    <%= f.text_field :username, autofocus: true, :class=>'form-control'%>
   </div>
 	
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.text_field :first_name, autofocus: true, :class=>'form-control' %>
   </div>
 	
   <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+    <%= f.text_field :last_name, autofocus: true, :class=>'form-control' %>
   </div>
 	
   <div class="field">
     <%= f.label :department %><br />
-    <%= f.select :department_id, Department.all.pluck(:name, :id) , {prompt: 'Select one'} %>
+    <%= f.select :department_id, Department.all.pluck(:name, :id) , {prompt: 'Select one'}, :class=>'form-control' %>
 	</div>
 		
   <div class="field">
     <%= f.label :position %><br />
-    <%= f.text_field :position, autofocus: true %>
+    <%= f.text_field :position, autofocus: true, :class=>'form-control' %>
   </div>
 	
 	<div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+		<br>
+		<span id="helpBlock" class="help-block"><small>Leave blank to retain old password</small></span>
+    <%= f.label :password, :class=>'sr-only'%>
+    <%= f.password_field :password, autocomplete: "off", :class=>'form-control', :placeholder=>"New password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.label :password_confirmation, :class => 'sr-only' %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class=>'form-control', :placeholder=>"New password confirmation" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+		<br>
+		<span id="helpBlock" class="help-block"><small>Current password required to save changes</small></span>
+    <%= f.label :current_password, :class=> 'sr-only'%>
+    <%= f.password_field :current_password, autocomplete: "off", :class=>'form-control', :placeholder=>'Current password'%>
   </div>
 	
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", :class=>'btn btn-primary'%>
   </div>
-<% end %>
 
-<%= link_to "Back", :back %>
+	<br>
+	<%= link_to "Back", :back %>
+<% end %>

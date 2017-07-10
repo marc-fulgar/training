@@ -1,32 +1,37 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></tr>
 
-<p>
-	<%= image_tag @user.avatar.url(:thumb) %>
-</p>
+		<%= image_tag @user.avatar.url(:thumb) %>
+<table class="table-striped">
+	<col width=150>
+	  <td><strong>First name:</strong></td>
+	  <td><%= @user.first_name %></td>
+	</col>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+	<tr>
+	  <td><strong>Last name:</strong></td>
+	  <td><%= @user.last_name %></td>
+	</tr>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+	<tr>
+	  <td><strong>Position:</strong></td>
+	  <td><%= @user.position %></td>
+	</tr>
 
-<p>
-  <strong>Position:</strong>
-  <%= @user.position %>
-</p>
+	<tr>
+	  <td><strong>Department:</strong></td>
+	  <td><%=link_to (@user.department ? @user.department.name : ""), @user.department %></td>
+	</tr>
 
-<p>
-  <strong>Department:</strong>
-  <%= @user.department ? @user.department.name : "" %>
-</p>
+	<tr>
+	  <td><strong>Email:</strong></td>
+	  <td><%= @user.email %></td>
+	</tr>
+</table>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<br>
+<% if @user.id == current_user.id %>
+	<%= link_to 'Edit', edit_user_registration_path, :class => "btn btn-primary" %>
+	<br><br>
+<% end %>
 
-<%= link_to 'Back', users_path %> | <%= link_to 'Edit', edit_user_registration_path %>
+<%= link_to 'Back', users_path %>

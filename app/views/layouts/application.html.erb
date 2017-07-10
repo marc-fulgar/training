@@ -6,6 +6,7 @@
 		<div class="container-fluid" padding-right: 20px>
 			<div class="text-right col-md-6 col-md-offset-6">
 				<br>
+				<%= link_to "#{current_user.first_name} #{current_user.last_name}" , current_user %> | 
 				<%= link_to 'Users', users_path %> |
 				<%= link_to 'Departments', departments_path %> |
 				<%= link_to 'Newsfeed', posts_path %> |

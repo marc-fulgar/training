@@ -1,17 +1,18 @@
 <table>
 	<tr>
 		<td>
-			<table>
-				<tr><td><%= image_tag post.user.avatar.url(:thumb) %></td></tr>
-				<tr><td><%= post.user.first_name %> <%= post.user.last_name %></td></tr>
-				<tr><td><%= post.user.department.name ? post.user.department.name : "" %></td></tr>
-				<tr><td><%= post.created_at.strftime('%I:%M%p, %d %b, \'%y') %></td></tr>
+			<table width="115">
+				<tr><td><%= image_tag post.user.avatar.url(:icon) %></td></tr>
+				<tr><td><strong><%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(post.user.id) %></strong><br>
+					<small><%= link_to (post.user.department.name ? post.user.department.name : ""), department_path(post.user.department.id) %></small></td></tr>
 			</table>
 		</td>
 		<td>
 			<table>
-				<%= post.content %>
+				<tr><td><%= post.content %></td></tr>
+				<tr><td><br><small><%= post.created_at.strftime('%I:%M%p, %d %b, \'%y') %><small></td></tr>
 			</table>
 		</td>
 	</tr>
 </table>
+<hr>
