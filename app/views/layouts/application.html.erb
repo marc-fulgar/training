@@ -2,6 +2,17 @@
 <html>
   <head>
     <title>StaffList</title>
+    <%= csrf_meta_tags %>
+		<% if alert %>
+		<p class = "alert"><%= alert %></p>
+		<% end %>
+		<% if notice %>
+		<p class="notice"><% notice %></p>
+		<% end %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
 		<% if user_signed_in? %>
 		<div class="container-fluid" padding-right: 20px>
 			<div class="text-right col-md-6 col-md-offset-6">
@@ -15,17 +26,6 @@
 		</div>
 		<hr>
 		<% end %>
-    <%= csrf_meta_tags %>
-		<% if alert %>
-		<p class = "alert"><%= alert %></p>
-		<% end %>
-		<% if notice %>
-		<p class="notice"><% notice %></p>
-		<% end %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
     <div class="container">
       <%= yield %>
     </div>
