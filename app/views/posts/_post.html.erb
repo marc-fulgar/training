@@ -2,7 +2,7 @@
 	<tr>
 		<td>
 			<table width="115">
-				<tr><td><%= image_tag post.user.avatar.url(:icon) %></td></tr>
+				<tr><td><%= link_to (image_tag post.user.avatar.url(:icon)), user_path(post.user.id) %></td></tr>
 				<tr><td><strong><%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(post.user.id) %></strong><br>
 					<small><%= link_to (post.user.department.name ? post.user.department.name : ""), department_path(post.user.department.id) %></small></td></tr>
 			</table>
