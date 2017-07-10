@@ -1,7 +1,6 @@
-<br><br><br>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:class => "col-xs-5"}) do |f| %>
   <%= devise_error_messages! %>
-	
+	<br>
 	<div>
     <%= f.label :username, :class=>'sr-only' %>
     <%= f.text_field :username, autofocus: true, :class=>"form-control", :placeholder=>"Username" %>
