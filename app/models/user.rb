@@ -10,6 +10,9 @@ class User < ApplicationRecord
   attr_accessor :login
   validates :username, :presence => true, :uniqueness => true
   validates :department_id, :presence => true
+  validates :password, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "200x200>", icon:"100x100>" }, default_url: "/images/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   

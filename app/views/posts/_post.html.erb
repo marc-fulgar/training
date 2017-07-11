@@ -10,7 +10,7 @@
 		<td>
 			<table>
 				<tr><td><%= post.content %></td></tr>
-				<tr><td><br><small><%= post.created_at.strftime('%I:%M%p, %d %b, \'%y') %><small></td></tr>
+				<tr><td><br><small><%= post.created_at.in_time_zone('Hong Kong').strftime('%I:%M%p, %d %b, \'%y') %><small></td></tr>
 			</table>
 		</td>
 	</tr>
