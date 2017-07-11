@@ -1,37 +1,18 @@
 <p id="notice"><%= notice %></tr>
 
-		<%= image_tag @user.avatar.url(:thumb) %>
-<table class="table-striped">
-	<col width=150>
-	  <td><strong>First name:</strong></td>
-	  <td><%= @user.first_name %></td>
-	</col>
+<div class = "well well-lg col-sm-6 col-sm-offset-3">
+	<center><%= image_tag @user.avatar.url(:thumb) %></center>
+	<center><h3><%= @user.first_name %>	<%= @user.last_name %></h3></center>
 
-	<tr>
-	  <td><strong>Last name:</strong></td>
-	  <td><%= @user.last_name %></td>
-	</tr>
+	<center><strong><%= @user.position %><br></strong>
+	<%=link_to (@user.department ? @user.department.name : ""), @user.department %><br>
+	<%= @user.email %></center>
 
-	<tr>
-	  <td><strong>Position:</strong></td>
-	  <td><%= @user.position %></td>
-	</tr>
-
-	<tr>
-	  <td><strong>Department:</strong></td>
-	  <td><%=link_to (@user.department ? @user.department.name : ""), @user.department %></td>
-	</tr>
-
-	<tr>
-	  <td><strong>Email:</strong></td>
-	  <td><%= @user.email %></td>
-	</tr>
-</table>
-
-<br>
-<% if @user.id == current_user.id %>
-	<%= link_to 'Edit', edit_user_registration_path, :class => "btn btn-primary" %>
-	<br><br>
-<% end %>
-
-<%= link_to 'Back', users_path %>
+	<% if @user.id == current_user.id %>
+		<br>
+		<%= link_to 'Edit', edit_user_registration_path, :class => "btn btn-primary btn-block btn-xs" %>
+	<% else%>
+		<br>
+	<% end %>
+	<center><%= link_to 'Back to Users', users_path %></center>
+</div>
