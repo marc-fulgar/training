@@ -15,5 +15,4 @@
 	</div>
 <% end %>
 <%= react_component("UserList", users: @users.as_json(include: :department)) %>
-
-<br>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>

@@ -8,11 +8,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable  
   
   attr_accessor :login
-  validates :username, :presence => true, :uniqueness => true
-  validates :department_id, :presence => true
-  validates :password, :presence => true
-  validates :first_name, :presence => true
-  validates :last_name, :presence => true
+  validates :username, :email, :presence => true, :uniqueness => true
+  validates :department_id, :first_name, :last_name, :presence => true
+  validates :password, on: :create, :presence => true
+  validates :password, on: :update, allow_blank: true, :presence => true
+  validates_confirmation_of :password
+  
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "200x200>", icon:"100x100>" }, default_url: "/images/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   

@@ -3,3 +3,4 @@
 <%= render 'form' %>
 <br>
 <%= render @posts %>
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>

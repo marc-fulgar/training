@@ -6,8 +6,8 @@ var UserList = React.createClass({
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>First name</th>
               <th>Last name</th>
+              <th>First name</th>
 							<th>Department</th>
               <th>Position</th>
               <th>Email</th>

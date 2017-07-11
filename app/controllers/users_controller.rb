@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def index
     # @users = User.all.includes(:department)
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).includes(:department)
+    @users = @q.result.paginate(:page => params[:page], :per_page => 20).order('last_name desc').reverse_order.includes(:department)
   end
 
   # GET /users/1
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to user_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
