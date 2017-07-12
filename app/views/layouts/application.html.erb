@@ -10,7 +10,7 @@
 	<% if user_signed_in? %>
   <body class="theme-logged_in">
 	<% else %>
-	<body>
+	<body class="theme-logged_out">
 	<%end%>
 		<% if alert %>
 			<p class = "alert"><%= alert %></p>
