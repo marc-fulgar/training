@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= @department.name %></h3>
 <table class="table table-striped">
+	<th><h4><%= @department.name %></h4></th>
 	<% @users.each do |user| %>
 		<tr><td><%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id)%></td></tr>
 	<% end %>

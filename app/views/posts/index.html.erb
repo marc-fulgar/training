@@ -2,5 +2,8 @@
 
 <%= render 'form' %>
 <br>
-<%= render @posts %>
+
+<%= react_component('PostList', posts: @posts.as_json(include: :user)) %>
+<!-- ##
+<%= render @posts %> -->
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
