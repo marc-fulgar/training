@@ -7,11 +7,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 	
-	<% if user_signed_in? %>
   <body class="theme-logged_in">
-	<% else %>
-	<body class="theme-logged_out">
-	<%end%>
 		<% if alert %>
 			<p class = "alert"><%= alert %></p>
 		<% end %>
