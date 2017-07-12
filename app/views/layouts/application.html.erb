@@ -6,8 +6,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-	
-  <body class="theme-logged_in">
+	<% if user_signed_in? %>
+	  <body style="padding-top: 50px;" }>
+	<% else%>
+		<body style="padding-top: 0px;">
+	<% end %>
 		<% if alert %>
 			<p class = "alert"><%= alert %></p>
 		<% end %>
