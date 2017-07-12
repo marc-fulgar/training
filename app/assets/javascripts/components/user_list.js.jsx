@@ -2,7 +2,7 @@ var UserList = React.createClass({
 
   render: function() {
     return (
-      <div className="table-responsive">
+      <div className="table-responsive col-sm-12">
         <table className="table table-striped">
           <thead>
             <tr>

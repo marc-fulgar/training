@@ -1,19 +1,7 @@
 <%= form_for @post do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="form-horizontal form-group-lg">
     <%= f.label "Post", :class => 'sr-only' %><br>
-    <%= f.text_area :content, rows: 2, :class => 'form-control', :placeholder => "What's on your mind?"%>
+    <%= f.text_area :content, rows: 2, :class => 'form-control', autofocus: true, :placeholder => "What's on your mind?", required: true%>
 
     <%= f.submit "Sumbit", :class => 'btn btn-primary btn-sm btn-block'%>
   </div>

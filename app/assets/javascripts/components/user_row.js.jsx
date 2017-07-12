@@ -6,7 +6,7 @@ var UserRow = React.createClass({
       <tr>
         <td><a href={"/users/"+user.id}>{user.last_name}</a></td>
         <td><a href={"/users/"+user.id}>{user.first_name}</a></td>
-				<td><a href={"/departments/"+user.department.id}>{user.department.name }</a></td>
+				<td><a href={user.department ? ("/departments/" + user.department.id) : "" }>{user.department ? user.department.name : ""}</a></td>
         <td>{user.position}</td>
         <td>{user.email}</td>
       </tr>
