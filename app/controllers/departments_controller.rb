@@ -26,7 +26,7 @@ class DepartmentsController < ApplicationController
         format.html { redirect_to departments_path, notice: 'Department was successfully created.' }
         format.json { render :show, status: :created, location: @department }
       else
-        format.html { render :new, notice: 'Department already exists.' }
+        format.html { render :new, alert: 'Department already exists.' }
         format.json { render json: @department.errors, status: :unprocessable_entity }
       end
     end
