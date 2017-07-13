@@ -5,11 +5,12 @@ var PostPrinter = React.createClass({
     return (
 			<div className="well well-sm container-fluid">
 				<div className="col-md-3">
-					<table>
-						<td width="115">
+					<table className="media">
+						<td width="115" className="media-left">
 							<a href={"/users/"+post.user.id}><img src={post.icon_url} /></a>
 						</td>
-						<td>
+						<td className="media-body">
+							<tr><br /></tr>
 							<tr><strong><a href={"/users/"+post.user.id}>{post.user.first_name} {post.user.last_name}</a></strong></tr>
 							<tr><small><a href={post.user.department ? ("/departments/" + post.user.department.id) : "" }>{post.user.department ? post.user.department.name : ""}</a></small></tr>
 						</td>
