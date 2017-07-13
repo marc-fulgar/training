@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to posts_path, notice: 'Message successfully posted.' }
+        format.html { redirect_to posts_path, notice: 'Post successfully added.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { redirect_to posts_path, notice: 'Post cannot be empty!' }
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to posts_url, notice: 'Post was successfully deleted.' }
       format.json { head :no_content }
     end
   end

@@ -2,7 +2,7 @@
 	<%= render 'form' %>
 	<br>
 	<div>
-		<%= react_component('PostList', posts: @posts.as_json(:include => { :user => { :include => :department }}, :methods => [:local_make_time, :icon_url])) %>
+		<%= react_component('PostList', current_user: current_user, posts: @posts.as_json(:include => { :user => { :include => :department }}, :methods => [:local_make_time, :icon_url])) %>
 		<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 	</div>
 </div>

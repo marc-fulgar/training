@@ -1,6 +1,7 @@
 var PostPrinter = React.createClass({
   render: function() {
     post = this.props.post
+		current_user = this.props.current_user
     return (
 			<div className="well well-sm container-fluid">
 				<div className="col-md-3">
@@ -17,8 +18,13 @@ var PostPrinter = React.createClass({
 				</div>
 				<div className="col-md-9">
 					<br />
-					<small>{post.local_make_time}</small><br /><br />
+					<small>{post.local_make_time}</small>
+					<br />
 					{post.content}
+					<br /><br />
+					{current_user.id == post.user.id &&
+				    <a href={"/posts/"+post.id} data-method="delete">Delete</a>
+					}
 				</div>
 			</div>
     )
