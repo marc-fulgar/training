@@ -1,7 +1,6 @@
 var PostPrinter = React.createClass({
   render: function() {
     post = this.props.post
-		current_user = this.props.current_user
     return (
 			<div className="well well-sm container-fluid">
 				<div className="col-md-3">
@@ -20,10 +19,6 @@ var PostPrinter = React.createClass({
 					<br />
 					<small>{post.local_make_time}</small><br /><br />
 					{post.content}
-					{post.user == current_user &&
-						<div><br />MINE.</div>
-					}
-					{current_user}
 				</div>
 			</div>
     )
