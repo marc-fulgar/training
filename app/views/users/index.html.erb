@@ -14,5 +14,6 @@
 	  <%= f.submit "Search", :class => "btn btn-primary btn-sm" %>
 	</div>
 <% end %>
+
 <%= react_component("UserList", users: @users.as_json(include: :department)) %>
 <%= will_paginate @users, renderer: BootstrapPagination::Rails %>

@@ -29,6 +29,6 @@
     <%= f.submit "Sign up", :class=>"btn btn-primary btn-block" %>
 		<br>
 		<center><small>Already have an acount?</small></center>
-		<center><%= render "devise/shared/links" %></center>
+		<center><%= link_to 'Log in', new_user_session_path, :class=>"btn btn-primary btn-block" %></center>
 	</div>
 <% end %>

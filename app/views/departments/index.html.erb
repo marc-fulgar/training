@@ -1,14 +1,15 @@
 <br>
 <div class="col-lg-8 col-lg-offset-2">
 	<div class="well well-lg">
-		<table class="table">
+		<table class="table table-striped">
 		  <% @departments.each do |department| %>
 		  <tr>
 		    <td><%= link_to department.name, department %></td>
-		    <td width="112"><%= link_to 'Edit', edit_department_path(department), :class => "btn btn-primary btn-xs"%>&nbsp;<%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary btn-xs" %></td>
+		    <td width="112"><%= link_to 'Edit', edit_department_path(department), :class => "btn btn-primary btn-xs"%>&nbsp;<%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" %></td>
 		  </tr>
 		  <% end %>
 		</table>
-	<%= link_to 'Create New', new_department_path, :class => "btn btn-primary btn-block" %>
+		<%= link_to 'Create New', new_department_path, :class => "btn btn-primary btn-block" %>
+		<center><%= link_to 'Back to Users', users_path %></center>
 	</div>
 </div>

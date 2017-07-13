@@ -1,11 +1,11 @@
 var PostList = React.createClass({	
 	render() {
 		return(
-			<table>
+			<div>
 	      {this.props.posts.map(function(post, i){
 	        return <PostPrinter key={i} post={post}/>
 	      })}
-			</table>
+			</div>
 		)
 	}
 })
