@@ -9,3 +9,15 @@
 .textarea-fixed {
 	resize: none;
 }
+
+.postform {
+  display:inline-block;
+  position:relative;
+	width:100%;
+}
+
+.postbutton {
+ position:absolute;
+ bottom:20%;
+ right:20px;
+}
