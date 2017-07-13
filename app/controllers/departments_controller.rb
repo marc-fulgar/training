@@ -3,7 +3,7 @@ class DepartmentsController < ApplicationController
   before_action :set_department, only: [:show, :edit, :update, :destroy] 
   
   def index
-    @departments = Department.all
+    @departments = Department.all.order('name desc').reverse_order
   end
 
   def show
@@ -26,7 +26,7 @@ class DepartmentsController < ApplicationController
         format.html { redirect_to departments_path, notice: 'Department was successfully created.' }
         format.json { render :show, status: :created, location: @department }
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'Department already exists.' }
         format.json { render json: @department.errors, status: :unprocessable_entity }
       end
     end

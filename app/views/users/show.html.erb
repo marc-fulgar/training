@@ -1,18 +1,19 @@
-<p id="notice"><%= notice %></tr>
+<div class = "container-fluid">
+	<br />
+	<div class = "well well-lg col-sm-4 col-sm-offset-4">
+		<center><%= image_tag @user.avatar.url(:thumb), :class=>"img-rounded" %></center>
+		<center><h3><%= @user.first_name %>	<%= @user.last_name %></h3></center>
 
-<div class = "well well-lg col-sm-4 col-sm-offset-4">
-	<center><%= image_tag @user.avatar.url(:thumb), :class=>"img-rounded" %></center>
-	<center><h3><%= @user.first_name %>	<%= @user.last_name %></h3></center>
+		<center><strong><%= @user.position %><br></strong>
+		<%=link_to (@user.department ? @user.department.name : ""), @user.department %><br>
+		<%= @user.email %></center>
 
-	<center><strong><%= @user.position %><br></strong>
-	<%=link_to (@user.department ? @user.department.name : ""), @user.department %><br>
-	<%= @user.email %></center>
-
-	<% if @user.id == current_user.id %>
-		<br>
-		<%= link_to 'Edit', edit_user_registration_path, :class => "btn btn-primary btn-block btn-xs" %>
-	<% else%>
-		<br>
-	<% end %>
-	<center><%= link_to 'Back to Users', users_path %></center>
+		<% if @user.id == current_user.id %>
+			<br>
+			<%= link_to 'Edit', edit_user_registration_path, :class => "btn btn-primary btn-block btn-xs" %>
+		<% else%>
+			<br>
+		<% end %>
+		<center><%= link_to 'Back to Users', users_path %></center>
+	</div>
 </div>
