@@ -21,3 +21,10 @@
  bottom:20%;
  right:20px;
 }
+
+.morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}

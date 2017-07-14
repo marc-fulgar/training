@@ -10,13 +10,9 @@
 <% end %>
 
 <div class = "container-fluid">
-	<%= form_for @department do |f| %>
-		<br>
-		<div class="well well-lg col-sm-4 col-sm-offset-4">
-	    <%= f.label :name, :class=>"sr-only" %>
-	    <%= f.text_field :name, :class=>"form-control", autofocus: true,:placeholder=>"Department Name", required: true %><br />
-	    <%= f.submit "Submit", :class=>"btn btn-primary btn-block" %>
-			<center><%= link_to 'Back to Departments', departments_path %></center>
-		</div>
-	<% end %>
+	<br>
+	<div class="well well-lg col-sm-4 col-sm-offset-4">
+		<strong>Create new department</strong>
+		<%= render 'form' %>
+	</div>
 </div>

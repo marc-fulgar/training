@@ -1,11 +1,18 @@
+<% if !(@department.errors.empty?) %>
+	<div class="alert alert-danger alert-dismissible" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	    <span aria-hidden="true">&times;</span>
+	  </button>
+		<% @department.errors.full_messages.each do |msg| %>
+		  <li><%= msg %></li>
+		<% end %>
+	</div>
+<% end %>
+
 <div class = "container-fluid">
-	<%= form_for @department do |f| %>
-		<br>
-		<div class="well well-lg col-sm-4 col-sm-offset-4">
-	    <%= f.label :name, :class=>"sr-only" %>
-	    <%= f.text_field :name, :class=>"form-control", autofocus: true,:placeholder=>"Department Name", required: true %><br />
-	    <%= f.submit "Submit", :class=>"btn btn-primary btn-block" %>
-			<center><%= link_to 'Back to Departments', departments_path %></center>
-		</div>
-	<% end %>
+	<br>
+	<div class="well well-lg col-sm-4 col-sm-offset-4">
+		<strong>Rename <%= @department.name %> Department</strong>
+		<%= render 'form' %>
+	</d>
 </div>

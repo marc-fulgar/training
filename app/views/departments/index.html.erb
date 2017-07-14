@@ -8,7 +8,7 @@
 		  <% @departments.each do |department| %>
 		  <tr>
 		    <td><%= link_to department.name, department %></td>
-		    <td width="112"><%= link_to 'Edit', edit_department_path(department), :class => "btn btn-primary btn-xs"%>&nbsp;<%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" %></td>
+		    <td width="130"><%= link_to 'Rename', edit_department_path(department), :class => "btn btn-primary btn-xs"%>&nbsp;<%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" %></td>
 		  </tr>
 		  <% end %>
 		</table>
