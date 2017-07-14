@@ -1,13 +1,29 @@
 <br />
-<div class="containter-fluid">
+<div class="container-fluid">
 	<div class="well well-lg col-md-6 col-md-offset-3">
-		<div class="media">
-			<div class="media-left">
-				<%= image_tag @post.user.avatar.url(:thumb), :class=>"img-rounded" %>
-			</div>
-			<div class="media body">
-				<h3><%= @post.user.first_name %>	<%= @post.user.last_name %></h3>
-			</div>
+		<table>
+			<td>
+				<a href={"/users/"+post.user.id}><%= image_tag @post.user.avatar.url(:icon), :class=>"img-rounded", :style=>"padding:10px" %></a>
+			</td>
+			<td>
+				<strong><%= @post.user.first_name %>	<%= @post.user.last_name %></strong><br />
+				<%= link_to @post.user.position %><br />
+				<%= link_to (@post.user.department ? @post.user.department.name : ""), @post.user.department %>
+			</td>
+		</table>
+		<br/>
+		<div>
+			<%= link_to @post.absolute_time, @post %>
+			<h4><%= @post.content %></h4>
+
+			<% if @post.user == current_user %>
+				<%= link_to 'Edit', edit_post_path, :class => "btn btn-primary btn-sm" %>
+				&nbsp;
+				<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
+			<% else%>
+			<% end %>
+			<br /><br />
+			<%= link_to 'Back to Newsfeed', posts_path %>
 		</div>
 	</div>
 </div>

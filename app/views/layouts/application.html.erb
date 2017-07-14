@@ -49,9 +49,9 @@
 					<div class="collapse navbar-collapse navbar-right" id="main-nav">
 			      <ul class="nav navbar-nav">
 							<li><%= link_to "#{current_user.first_name} #{current_user.last_name}" , current_user %></li>
-							<li><%= link_to 'Stafflist', users_path %></li>
-							<li><%= link_to 'Departments', departments_path %></li>
-							<li><%= link_to 'Newsfeed', posts_path %></li>
+							<li class="<%= 'active' if request.path == users_path %>"><%= link_to 'Stafflist', users_path %></li>
+							<li class="<%= 'active' if request.path == departments_path %>"><%= link_to 'Departments', departments_path %></li>
+							<li class="<%= 'active' if request.path == posts_path %>"><%= link_to 'Newsfeed', posts_path %></li>
 							<li><%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %></li>
 	          </ul>
 					</div>

@@ -7,6 +7,7 @@ class DepartmentsController < ApplicationController
   end
 
   def show
+    @department = Department.find(params[:id])
     @users = User.where(department_id: params[:id])
   end
 
@@ -16,8 +17,6 @@ class DepartmentsController < ApplicationController
   end
 
   def edit
-    @department = Department.new
-    @departments = Department.all
   end
 
   def create

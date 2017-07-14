@@ -23,7 +23,7 @@ var PostPrinter = React.createClass({
 					{post.content}
 					<br /><br />
 					{current_user.id == post.user.id &&
-				    <a href={"/posts/"+post.id} data-confirm="Are you sure?" data-method="delete">Delete</a>
+						<a href={"/posts/"+post.id} data-confirm="Are you sure?" data-method="delete">Delete</a>
 					}
 				</div>
 			</div>
