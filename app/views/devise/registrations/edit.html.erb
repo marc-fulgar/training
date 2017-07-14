@@ -39,7 +39,7 @@
 	
 		  <div class="field">
 		    <%= f.label :department %>
-		    <%= f.select :department_id, Department.all.pluck(:name, :id) , {prompt: 'Select one'}, :class=>'form-control' %><br>
+		    <%= f.select :department_id, Department.order('name desc').reverse_order.all.pluck(:name, :id) , {prompt: 'Select one'}, :class=>'form-control' %><br>
 			</div>
 		
 		  <div class="field">

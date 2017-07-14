@@ -2,6 +2,8 @@
 <div class="col-lg-8 col-lg-offset-2">
 	<div class="well well-lg">
 		<table class="table table-striped">
+			<th>Name</th>
+			<th>
 		  <% @departments.each do |department| %>
 		  <tr>
 		    <td><%= link_to department.name, department %></td>

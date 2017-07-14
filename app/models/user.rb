@@ -34,6 +34,11 @@ class User < ApplicationRecord
     false
   end
   
+  def strip_whitespace
+    self.username = self.username.strip unless self.username.nil?
+    self.email = self.email.strip unless self.email.nil?
+  end
+  
   def self.find_for_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)

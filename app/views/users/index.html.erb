@@ -10,12 +10,13 @@
 		  <%= f.search_field :position_cont, :class => "form-control input-sm", :placeholder=>"Position" %>
 
 		  <%= f.label "Department", :class => "sr-only" %>
-		  <%= f.select :department_id_eq, Department.all.pluck(:name, :id), {include_blank: '[Department]'}, :class => "form-control input-sm", :placeholder => "Department"%>
+		  <%= f.select :department_id_eq, Department.order('name desc').reverse_order.all.pluck(:name, :id), {include_blank: '--'}, :class => "form-control input-sm", :placeholder => "Department"%>
 
 		  <%= f.submit "Search", :class => "btn btn-primary btn-sm" %>
 		</div>
 	<% end %>
 
 	<%= react_component("UserList", users: @users.as_json(include: :department)) %>
-	<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+  <center><%= page_entries_info @users %><br/>
+	<%= will_paginate @users, renderer: BootstrapPagination::Rails %></center>
 </div>

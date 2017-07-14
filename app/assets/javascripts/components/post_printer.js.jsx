@@ -18,7 +18,7 @@ var PostPrinter = React.createClass({
 				</div>
 				<div className="col-md-9">
 					<br />
-					<small>{post.local_make_time}</small>
+					<a href={"/posts/"+post.id} title={post.absolute_time}><sup>{post.local_make_time}</sup></a>
 					<br />
 					{post.content}
 					<br /><br />

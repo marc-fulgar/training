@@ -3,8 +3,15 @@
 	<div class="well well-lg">
 		<font size="8px"><strong><%= @department.name %></strong></font>
 		<table class="table table-striped">
-			<% @users.each do |user| %>
-				<tr><td><%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id)%></td></tr>
+			<th> Name </th>
+			<th> Position </th>
+			<th> Email </th>
+			<% @users.order('last_name desc').reverse_order.each do |user| %>
+				<tr>
+					<td><%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id)%></td>
+					<td><%= "#{user.position}" %></td>
+					<td><%= "#{user.email}" %></td>
+				</tr>
 			<% end %>
 		</table>
 		<%= link_to 'Edit', edit_department_path(@department), :class => "btn btn-primary btn-block"%>

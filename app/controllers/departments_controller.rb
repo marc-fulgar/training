@@ -16,6 +16,8 @@ class DepartmentsController < ApplicationController
   end
 
   def edit
+    @department = Department.new
+    @departments = Department.all
   end
 
   def create

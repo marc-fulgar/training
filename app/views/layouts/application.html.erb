@@ -5,10 +5,10 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   </head>
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<% if user_signed_in? %>
 	  <body style="padding-top: 50px;" }>
 	<% else %>
@@ -32,11 +32,11 @@
 		<% end %>
 		
 		<% if user_signed_in? %>
-			<nav class="nav navbar-default navbar-fixed-top">
+			<nav class="nav navbar-inverse navbar-fixed-top">
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<a class="navbar-brand" href=/>
-			        <img alt="Brand" src="/images/brand-icon.png">
+			        <img alt="Brand" src="/images/brand-inverted.png">
 			      </a>
 			
 			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
@@ -52,7 +52,7 @@
 							<li><%= link_to 'Stafflist', users_path %></li>
 							<li><%= link_to 'Departments', departments_path %></li>
 							<li><%= link_to 'Newsfeed', posts_path %></li>
-							<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+							<li><%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %></li>
 	          </ul>
 					</div>
 				</div>

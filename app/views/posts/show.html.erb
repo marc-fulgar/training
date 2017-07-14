@@ -1,2 +1,13 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<br />
+<div class="containter-fluid">
+	<div class="well well-lg col-md-6 col-md-offset-3">
+		<div class="media">
+			<div class="media-left">
+				<%= image_tag @post.user.avatar.url(:thumb), :class=>"img-rounded" %>
+			</div>
+			<div class="media body">
+				<h3><%= @post.user.first_name %>	<%= @post.user.last_name %></h3>
+			</div>
+		</div>
+	</div>
+</div>

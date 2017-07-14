@@ -1,8 +1,10 @@
 <div class ="container-fluid">
+	
 	<%= render 'form' %>
 	<br>
 	<div>
-		<%= react_component('PostList', current_user: current_user, posts: @posts.as_json(:include => { :user => { :include => :department }}, :methods => [:local_make_time, :icon_url])) %>
-		<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+		<%= react_component('PostList', current_user: current_user, posts: @posts.as_json(:include => { :user => { :include => :department }}, :methods => [:absolute_time, :local_make_time, :icon_url, :auto_link_content])) %>
+		<center><%= page_entries_info @posts %><br/>
+		<%= will_paginate @posts, renderer: BootstrapPagination::Rails %></center>
 	</div>
 </div>

@@ -11,6 +11,9 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def edit
+  end
+
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -40,6 +43,10 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   def destroy
