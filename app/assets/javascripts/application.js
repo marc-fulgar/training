@@ -17,4 +17,6 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require linkify
+//= require linkify-react
 //= require_tree .
