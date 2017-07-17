@@ -1,6 +1,8 @@
 var PostList = React.createClass({	
 	componentDidMount: function(){
 		initializeShowMore()
+		initializeSendButton()
+		initializeCharCount()
 	},
 	render() {
 		current_user = this.props.current_user

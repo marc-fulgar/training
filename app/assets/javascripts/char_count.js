@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function initializeCharCount() {
     var text_max = 200;
     $('#post_feedback').html(0 + ' / ' + text_max);
 
@@ -7,4 +7,4 @@ $(document).ready(function() {
 
         $('#post_feedback').html(text_length + ' / ' + text_max);
     });
-});
+};

@@ -1,7 +1,7 @@
-$(document).ready(function(){
+function initializeSendButton(){
     $('.sendButton').attr('disabled',true);
     
-    $('#message').keyup(function(){
+    $('#postarea').keyup(function(){
         if($(this).val().length !=0){
             $('.sendButton').attr('disabled', false);
         }
@@ -10,4 +10,4 @@ $(document).ready(function(){
             $('.sendButton').attr('disabled', true);        
         }
     })
-});
+};
