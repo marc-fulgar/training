@@ -23,10 +23,11 @@
 }
 
 .morecontent span {
-    display: none;
+  display: none;
 }
+
 .morelink {
-    display: block;
+  display: block;
 }
 
 h1, h2, h3, h4, h5, h6 {

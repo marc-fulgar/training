@@ -20,12 +20,12 @@ var PostPrinter = React.createClass({
 					<br />
 					<a href={"/posts/"+post.id} title={post.absolute_time}><sup>{post.local_make_time}</sup></a>
 					<br />
-					<div className="more">
+					<div className="truncate">
 						<Linkify>{post.content}</Linkify>
 					</div>
 					<br /><br />
 					{current_user.id == post.user.id &&
-						<a href={"/posts/"+post.id} data-confirm="Are you sure?" data-method="delete">Delete</a>
+						<a href={"/posts/"+post.id} data-confirm="Are you sure?" data-method="delete" className="btn btn-danger btn-xs">Delete</a>
 					}
 				</div>
 			</div>

@@ -2,20 +2,22 @@
 <div class="col-lg-8 col-lg-offset-2">
 	<div class="well well-lg">
 		<h3><strong><%= @department.name %></strong></h3>
-		<table class="table table-striped">
-			<th> Name </th>
-			<th> Position </th>
-			<th> Email </th>
-			<% @users.order('last_name desc').reverse_order.each do |user| %>
-				<tr>
-					<td><%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id)%></td>
-					<td><%= "#{user.position}" %></td>
-					<td><%= "#{user.email}" %></td>
-				</tr>
-			<% end %>
-		</table>
-		<%= link_to 'Edit', edit_department_path(@department), class: "btn btn-primary btn-block"%>
-		<%= link_to 'Destroy', @department, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block" %>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<th> Name </th>
+				<th> Position </th>
+				<th> Email </th>
+				<% @users.order('last_name desc').reverse_order.each do |user| %>
+					<tr>
+						<td><%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id)%></td>
+						<td><%= "#{user.position}" %></td>
+						<td><%= "#{user.email}" %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+		<%= link_to 'Rename', edit_department_path(@department), class: "btn btn-primary"%>
+		<%= link_to 'Destroy', @department, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 		<center><%= link_to 'Back to Departments', departments_path %></center>
 	</div>
 </div>
