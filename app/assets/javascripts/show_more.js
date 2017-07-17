@@ -1,9 +1,9 @@
-$(document).ready(function() {
+function initializeShowMore() {
     // Configure/customize these variables.
-    var showChar = 5;  // How many characters are shown by default
+    var showChar = 110;  // How many characters are shown by default
     var ellipsestext = "...";
-    var moretext = "Show more >";
-    var lesstext = "Show less";
+    var moretext = "See more";
+    var lesstext = "See less";
     
 
     $('.more').each(function() {
@@ -33,4 +33,4 @@ $(document).ready(function() {
         $(this).prev().toggle();
         return false;
     });
-});
+};

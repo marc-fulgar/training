@@ -1,4 +1,7 @@
 var PostList = React.createClass({	
+	componentDidMount: function(){
+		initializeShowMore()
+	},
 	render() {
 		current_user = this.props.current_user
 		return(

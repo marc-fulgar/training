@@ -11,12 +11,12 @@
 
 		  <%= f.label "Department", :class => "sr-only" %>
 		  <%= f.select :department_id_eq, Department.order('name desc').reverse_order.all.pluck(:name, :id), {include_blank: '--'}, :class => "form-control input-sm", :placeholder => "Department"%>
-
+		 
 		  <%= f.submit "Search", :class => "btn btn-primary btn-sm" %>
 		</div>
 	<% end %>
-
-	<%= react_component("UserList", users: @users.as_json(include: :department)) %>
+	
+	<%= react_component("UserList", users: @users.order('last_name').as_json(include: :department)) %>
   <center><%= page_entries_info @users %><br/>
 	<%= will_paginate @users, renderer: BootstrapPagination::Rails %></center>
 </div>
