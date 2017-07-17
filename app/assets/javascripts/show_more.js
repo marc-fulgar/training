@@ -2,8 +2,8 @@ function initializeShowMore() {
     // Configure/customize these variables.
     var showChar = 110;  // How many characters are shown by default
     var ellipsestext = "...";
-    var moretext = "See more";
-    var lesstext = "See less";
+    var moretext = "<small>\n See more</small>";
+    var lesstext = "<small>\n See less</small>";
     
 
     $('.more').each(function() {

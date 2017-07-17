@@ -9,33 +9,56 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 	<br>
 	<div class="well well-lg col-sm-6 col-sm-offset-3">
-    <%= f.label :username, :class=>'sr-only' %>
-    <%= f.text_field :username, autofocus: true, :class=>"form-control", :placeholder=>"Username", required: true %>
+		<p>
+			<%= f.label "Avatar" %>
+			<%= f.file_field :avatar %><br />
+		</p>
+		
+		<div class="has-feedback">
+	    <%= f.label :username, class: 'sr-only' %>
+	    <%= f.text_field :username, autofocus: true, class: "form-control", :placeholder=>"Username", required: true %>
+		  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+		</div>
     <br>
-    <%= f.label :first_name, :class=>'sr-only' %>
-    <%= f.text_field :first_name, autofocus: true, :class=>"form-control", :placeholder=>"First Name", required: true %>
+		<div class="has-feedback">
+	    <%= f.label :first_name, class: 'sr-only' %>
+	    <%= f.text_field :first_name, autofocus: true, class: "form-control", :placeholder=>"First Name", required: true %>
+		  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+		</div>
+    <br>
+		<div class="has-feedback">
+	    <%= f.label :last_name, class: 'sr-only' %>
+	    <%= f.text_field :last_name, autofocus: true, class: "form-control", :placeholder=>"Last Name", required: true %>
+		  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+		</div>
+    <br>
+    <%= f.label :department, class: 'sr-only' %>
+    <%= f.select :department_id, Department.order('name desc').reverse_order.all.pluck(:name, :id) , {include_blank: '--'}, class: "form-control", required: true %>
 		<br>
-    <%= f.label :last_name, :class=>'sr-only' %>
-    <%= f.text_field :last_name, autofocus: true, :class=>"form-control", :placeholder=>"Last Name", required: true %>
+    <%= f.label :position, class: 'sr-only' %>
+    <%= f.text_field :position, autofocus: true, class: "form-control", :placeholder=>"Position" %>
 		<br>
-    <%= f.label :department, :class=>'sr-only' %>
-    <%= f.select :department_id, Department.order('name desc').reverse_order.all.pluck(:name, :id) , {include_blank: '--'}, :class=>"form-control", required: true %>
-		<br>
-    <%= f.label :position, :class=>'sr-only' %>
-    <%= f.text_field :position, autofocus: true, :class=>"form-control", :placeholder=>"Position" %>
-		<br>
-    <%= f.label :email, :class=>'sr-only' %>
-    <%= f.email_field :email, autofocus: true, :class=>"form-control", :placeholder=>"E-mail", required: true %>
-		<br>
-    <%= f.label :password, :class=>'sr-only' %>
-    <%= f.password_field :password, autocomplete: "off", :class=>"form-control", :placeholder=>"Password", required: true %>
-		<br>
-    <%= f.label :password_confirmation, :class=>'sr-only' %>
-    <%= f.password_field :password_confirmation, autocomplete: "off", :class=>"form-control", :placeholder=>"Re-Enter Password", required: true %>
-		<br>
-    <%= f.submit "Sign up", :class=>"btn btn-primary btn-block" %>
+		<div class="has-feedback">
+	    <%= f.label :email, class: 'sr-only' %>
+	    <%= f.email_field :email, autofocus: true, class: "form-control", :placeholder=>"E-mail", required: true %>
+		  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+		</div>
+    <br>
+		<div class="has-feedback">
+	    <%= f.label :password, class: 'sr-only' %>
+	    <%= f.password_field :password, autocomplete: "off", class: "form-control", :placeholder=>"Password", required: true %>
+		  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+		</div>
+    <br>
+		<div class="has-feedback">
+	    <%= f.label :password_confirmation, class: 'sr-only' %>
+	    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", :placeholder=>"Re-Enter Password", required: true %>
+		  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+		</div>
+    <br>
+    <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
 		<br>
 		<center><small>Already have an acount?</small></center>
-		<center><%= link_to 'Log in', new_user_session_path, :class=>"btn btn-primary btn-block" %></center>
+		<center><%= link_to 'Log in', new_user_session_path, class: "btn btn-primary btn-block" %></center>
 	</div>
 <% end %>

@@ -11,10 +11,10 @@
 	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 		
 	  <div class="well form-group well-lg col-sm-4 col-sm-offset-4">
-	    <%= f.label :email, :class=>"sr-only" %>
-	    <%= f.email_field :email, autofocus: true, required: true, :class=>"form-control", :placeholder=>"Email address"  %>
+	    <%= f.label :email, class: "sr-only" %>
+	    <%= f.email_field :email, autofocus: true, required: true, class: "form-control", :placeholder=>"Email address"  %>
 			<br/>
-	    <%= f.submit "Send me reset password instructions", :class=>"btn btn-primary btn-block"%>
+	    <%= f.submit "Send me reset password instructions", class: "btn btn-primary btn-block"%>
 			<center>
 				<%= link_to 'Log in', new_user_session_path %><br/>
 				<%= link_to 'Sign up', new_user_registration_path %>

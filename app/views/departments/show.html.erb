@@ -14,8 +14,8 @@
 				</tr>
 			<% end %>
 		</table>
-		<%= link_to 'Edit', edit_department_path(@department), :class => "btn btn-primary btn-block"%>
-		<%= link_to 'Destroy', @department, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-block" %>
+		<%= link_to 'Edit', edit_department_path(@department), class: "btn btn-primary btn-block"%>
+		<%= link_to 'Destroy', @department, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block" %>
 		<center><%= link_to 'Back to Departments', departments_path %></center>
 	</div>
 </div>

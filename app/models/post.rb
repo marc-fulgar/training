@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   
-  validates :content, :presence => true
+  validates :content, presence: true
   
   def icon_url
     user.avatar.url(:icon)
