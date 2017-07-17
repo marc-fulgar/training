@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable  
   
   attr_accessor :login
-  validates :username, presence: true, uniqueness: true, length: {minimum: 4, maximum: 30}
+  validates :username, presence: true, uniqueness: true, length: {minimum: 4, maximum: 20}
   validates :email, presence: true, uniqueness: true, length: {minimum: 4, maximum: 30}
   validates :department_id, :first_name, :last_name, presence: true
   validates :position, length: {maximum: 30}

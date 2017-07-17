@@ -4,8 +4,8 @@ var PostPrinter = React.createClass({
 		current_user = this.props.current_user
     return (
 			<div className="well well-sm container-fluid">
-				<span className="col-sm-3">
-					<table className="media">
+				<table className="col-sm-3">
+					<tbody className="media">
 						<td width="115" className="media-left">
 							<a href={"/users/"+post.user.id}><img src={post.icon_url} /></a>
 						</td>
@@ -14,9 +14,9 @@ var PostPrinter = React.createClass({
 							<tr><strong><a href={"/users/"+post.user.id}>{post.user.first_name} {post.user.last_name}</a></strong></tr>
 							<tr><small><a href={post.user.department ? ("/departments/" + post.user.department.id) : "" }>{post.user.department ? post.user.department.name : ""}</a></small></tr>
 						</td>
-					</table>
-				</span>
-				<span className="col-sm-9">
+					</tbody>
+				</table>
+				<div className="col-sm-9">
 					<br />
 					<a href={"/posts/"+post.id} title={post.absolute_time}><sup>{post.local_make_time}</sup></a>
 					<br />
@@ -27,7 +27,7 @@ var PostPrinter = React.createClass({
 					{current_user.id == post.user.id &&
 						<a href={"/posts/"+post.id} data-confirm="Are you sure?" data-method="delete">Delete</a>
 					}
-				</span>
+				</div>
 			</div>
     )
   }
