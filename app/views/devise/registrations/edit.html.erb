@@ -39,12 +39,12 @@
 
 		  <div class="field">
 		    <%= f.label :username %>
-		    <%= f.text_field :username, autofocus: true, class: 'form-control'%><br>
+		    <%= f.text_field :username, autofocus: true, class: 'form-control', maxlength: 20%><br>
 		  </div>
 	
 		  <div class="field">
 		    <%= f.label :email %>
-		    <%= f.text_field :email, autofocus: true, class: 'form-control'%><br>
+		    <%= f.text_field :email, autofocus: true, class: 'form-control', maxlength: 50%><br>
 		  </div>
 	
 		  <div class="field">
@@ -59,12 +59,12 @@
 	
 		  <div class="field">
 		    <%= f.label :department %>
-		    <%= f.select :department_id, Department.order('name desc').reverse_order.all.pluck(:name, :id) , {prompt: 'Select one'}, class: 'form-control' %><br>
+		    <%= f.select :department_id, Department.order('name desc').reverse_order.all.pluck(:name, :id) , {include_blank: '--'}, class: 'form-control' %><br>
 			</div>
 		
 		  <div class="field">
 		    <%= f.label :position %>
-		    <%= f.text_field :position, autofocus: true, class: 'form-control' %><br>
+		    <%= f.text_field :position, autofocus: true, class: 'form-control', maxlength: 50 %><br>
 		  </div>
 	
 			<div class="field">

@@ -38,7 +38,7 @@
 		
 		<div class="has-feedback">
 	    <%= f.label :username, class: 'sr-only' %>
-	    <%= f.text_field :username, autofocus: true, class: "form-control", :placeholder=>"Username", required: true %>
+	    <%= f.text_field :username, autofocus: true, class: "form-control", :placeholder=>"Username", required: true, maxlength: 20 %>
 		  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
 		</div>
     <br>
@@ -58,11 +58,11 @@
     <%= f.select :department_id, Department.order('name desc').reverse_order.all.pluck(:name, :id) , {include_blank: '--'}, class: "form-control", required: true %>
 		<br>
     <%= f.label :position, class: 'sr-only' %>
-    <%= f.text_field :position, autofocus: true, class: "form-control", :placeholder=>"Position" %>
+    <%= f.text_field :position, autofocus: true, class: "form-control", :placeholder=>"Position", maxlength: 50 %>
 		<br>
 		<div class="has-feedback">
 	    <%= f.label :email, class: 'sr-only' %>
-	    <%= f.email_field :email, autofocus: true, class: "form-control", :placeholder=>"E-mail", required: true %>
+	    <%= f.email_field :email, autofocus: true, class: "form-control", :placeholder=>"E-mail", required: true, maxlength: 50%>
 		  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
 		</div>
     <br>

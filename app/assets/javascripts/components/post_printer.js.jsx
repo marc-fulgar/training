@@ -23,7 +23,7 @@ var PostPrinter = React.createClass({
 					<div className="truncate">
 						<Linkify>{post.content}</Linkify>
 					</div>
-					<br /><br />
+					<br />
 					{current_user.id == post.user.id &&
 						<a href={"/posts/"+post.id} data-confirm="Are you sure?" data-method="delete" className="btn btn-danger btn-xs">Delete</a>
 					}

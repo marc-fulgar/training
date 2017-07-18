@@ -8,10 +8,15 @@
 
 (1..10).each do |i|
   name = Faker::Job.unique.field
-  Department.create(name: name)
+  department = Department.new(name: name)
+  if department.save
+    puts "department #{i} created"
+  else
+    puts department.errors.messages
+  end
 end
 
-(1..100).each do |i|
+(1..250).each do |i|
   first_name    = Faker::Name.first_name
   username      = "user#{i}"
   last_name     = Faker::Name.last_name
@@ -27,14 +32,19 @@ end
     position: position,
     password: "password")
   if user.save
-    puts "success!"
+    puts "user #{i} created!"
   else
     puts user.errors.messages
   end
 end
 
-(1..100).each do |i|
-  content = Faker::Lorem.paragraph(5,true,5)
-  user_id = (101-i)
-  Post.create(content: content, user_id: user_id)
+(1..250).each do |i|
+  content = Faker::Lorem.paragraph(1,true,3)
+  user_id = (251-i)
+  post = Post.new(content: content, user_id: user_id)
+  if post.save
+    puts "post #{i} created!"
+  else
+    puts post.errors.messages
+  end
 end

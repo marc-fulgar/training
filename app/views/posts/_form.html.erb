@@ -1,7 +1,7 @@
 <%= form_for @post do |f| %>
   <span class="postform form-group">
     <%= f.label "Post", :class => 'sr-only' %><br />
-    <%= f.text_area :content, rows: 3, class: 'form-control', id: "postarea", style: "padding-right:100px", autofocus: true, maxlength: "200", placeholder: "What's on your mind?", required: true %>
+    <%= f.text_area :content, rows: 3, class: 'form-control textarea-fixed', id: "postarea", style: "padding-right:100px", autofocus: true, maxlength: "200", placeholder: "What's on your mind?", required: true %>
 		<div class="postbutton">
 			<%= f.submit "Submit", :class => 'sendButton btn btn-primary' %>
 			<small><div class="text-muted text-center" id="post_feedback"></div></small>
