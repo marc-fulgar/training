@@ -6,13 +6,35 @@
   	<%= alert = devise_error_messages! %>
 	</div>
 <% end %>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 	<br>
 	<div class="well well-lg col-sm-6 col-sm-offset-3">
-		<p>
-			<%= f.label "Avatar" %>
-			<%= f.file_field :avatar %><br />
-		</p>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar, id:"input" %><br />
+		
+		<center><%= image_tag @user.avatar, id: "output", class: "img-rounded avatar_preview"%></center><br /><br />
+		
+		<script>
+		  function handleFileSelect(evt) {
+		    var files = evt.target.files; // FileList object
+		      f=files[0]
+		      // Only process image files.
+		      if (f.type.match('image.*')) {
+		        var reader = new FileReader();
+		        reader.onload = (function(theFile) {
+		          return function(e) {
+		            // alert(e.target.result);
+		            document.getElementById("output").src=e.target.result;
+		          };
+		        })(f);
+
+		      // Read in the image file as a data URL.
+		      reader.readAsDataURL(f);
+		      }
+		    }
+		  document.getElementById('input').addEventListener('change', handleFileSelect, false);
+		</script>
 		
 		<div class="has-feedback">
 	    <%= f.label :username, class: 'sr-only' %>

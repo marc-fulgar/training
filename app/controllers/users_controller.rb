@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def index
     # @users = User.all.includes(:department)
     @q = User.ransack(params[:q])
-    @users = @q.result.paginate(page: params[:page], per_page: 20)
+    @users = @q.result.paginate(page: params[:page], per_page: 20).includes(:department)
   end
 
   # GET /users/1
