@@ -1,40 +1,42 @@
 <div class = "container-fluid">
-	<br>
-		<span class="form-inline">
-			<%= search_form_for @q do |f| %>
-				  <%= f.label "Name", :class => "sr-only" %>
-				  <%= f.search_field :full_name_cont, :class => "form-control input-sm", :placeholder=>"Name"%>
+	<br />
+	<span class="form-inline">
+		<%= search_form_for @q do |f| %>
+			  <%= f.label "Name", :class => "sr-only" %>
+			  <%= f.search_field :full_name_cont, :class => "form-control input-sm", :placeholder=>"Name"%>
 
-				  <%= f.label "Position", :class => "sr-only "%>
-				  <%= f.search_field :position_cont, :class => "form-control input-sm", :placeholder=>"Position" %>
+			  <%= f.label "Position", :class => "sr-only "%>
+			  <%= f.search_field :position_cont, :class => "form-control input-sm", :placeholder=>"Position" %>
 
-				  <%= f.label "Department", :class => "sr-only" %>
-				  <%= f.select :department_id_eq, Department.order('name desc').reverse_order.all.pluck(:name, :id), {include_blank: '--'}, :class => "form-control input-sm", :placeholder => "Department"%>
-			
-					<%= f.submit "Search", :class => "btn btn-primary btn-sm" %>
-			<% end %>
-
-			<% sort_order = 'last_name' %>
-
+			  <%= f.label "Department", :class => "sr-only" %>
+			  <%= f.select :department_id_eq, Department.order('name desc').reverse_order.all.pluck(:name, :id), {include_blank: '--'}, :class => "form-control input-sm", :placeholder => "Department"%>
+		
+				<%= f.submit "Search", :class => "btn btn-primary btn-sm" %>
+		
 			<select id="sort_order" onchange="sortSelect()" class="form-control input-sm">
-			  <option value="'last_name'">Last Name
-			  <option value="'first_name">First Name
-			  <option value="'Position'">Position
-			  <option value="'Department'">Department
+			  <option value="last_name_sort">Last Name
+			  <option value="first_name_sort">First Name
+			  <option value="department_sort">Department
+			  <option value="position_sort">Position
 			</select>
-			<script>
-				function sortSelect() {
-				    var x = document.getElementById("sort_order").value;
-				    sort_order = x;
-				}
-			</script>
-		</span>
+		<% end %>
 	
-	<br/ >
-	<%= sort_order %>
-	<br/ >
+		<script>
+			function sortSelect() {
+			    var x = document.getElementById("sort_order").value;
+	    		document.getElementById(x).click();
+			}
+		</script>
 	
-	<%= react_component("UserList", users: @users.order( sort_order ).as_json(include: :department)) %>
+		<div class="hidden">
+			<a href="<%= sort_url(@q, :last_name) %>" id="last_name_sort"></a>
+			<a href="<%= sort_url(@q, :first_name) %>" id="first_name_sort"></a>
+			<a href="<%= sort_url(@q, :department) %>" id="department_sort"></a>
+			<a href="<%= sort_url(@q, :position) %>" id="position_sort"></a>
+		</div>
+	</span>
+	
+	<%= react_component("UserList", users: @users.order( 'last_name' ).as_json(include: :department)) %>
   <center><%= page_entries_info @users %><br/>
 	<%= will_paginate @users, renderer: BootstrapPagination::Rails %></center>
 </div>
