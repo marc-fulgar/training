@@ -1,21 +1,38 @@
 <div class = "container-fluid">
 	<br>
-	<%= search_form_for @q do |f| %>
 		<span class="form-inline">
-		  <%= f.label "Name", :class => "sr-only" %>
-		  <%= f.search_field :full_name_cont, :class => "form-control input-sm", :placeholder=>"Name"%>
+			<%= search_form_for @q do |f| %>
+				  <%= f.label "Name", :class => "sr-only" %>
+				  <%= f.search_field :full_name_cont, :class => "form-control input-sm", :placeholder=>"Name"%>
 
-		  <%= f.label "Position", :class => "sr-only "%>
-		  <%= f.search_field :position_cont, :class => "form-control input-sm", :placeholder=>"Position" %>
+				  <%= f.label "Position", :class => "sr-only "%>
+				  <%= f.search_field :position_cont, :class => "form-control input-sm", :placeholder=>"Position" %>
 
-		  <%= f.label "Department", :class => "sr-only" %>
-		  <%= f.select :department_id_eq, Department.order('name desc').reverse_order.all.pluck(:name, :id), {include_blank: '--'}, :class => "form-control input-sm", :placeholder => "Department"%>
+				  <%= f.label "Department", :class => "sr-only" %>
+				  <%= f.select :department_id_eq, Department.order('name desc').reverse_order.all.pluck(:name, :id), {include_blank: '--'}, :class => "form-control input-sm", :placeholder => "Department"%>
 			
-			<%= f.submit "Search", :class => "btn btn-primary btn-sm" %>
-		</span>
-	<% end %>
+					<%= f.submit "Search", :class => "btn btn-primary btn-sm" %>
+			<% end %>
 
-	<% sort_order = 'last_name'%>
+			<% sort_order = 'last_name' %>
+
+			<select id="sort_order" onchange="sortSelect()" class="form-control input-sm">
+			  <option value="'last_name'">Last Name
+			  <option value="'first_name">First Name
+			  <option value="'Position'">Position
+			  <option value="'Department'">Department
+			</select>
+			<script>
+				function sortSelect() {
+				    var x = document.getElementById("sort_order").value;
+				    sort_order = x;
+				}
+			</script>
+		</span>
+	
+	<br/ >
+	<%= sort_order %>
+	<br/ >
 	
 	<%= react_component("UserList", users: @users.order( sort_order ).as_json(include: :department)) %>
   <center><%= page_entries_info @users %><br/>
